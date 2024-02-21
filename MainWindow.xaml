@@ -1,0 +1,101 @@
+﻿<Window xmlns:USERCONTROLS="clr-namespace:MidTermProject.USERCONTROLS"  x:Class="MidTermProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:MidTermProject"
+        mc:Ignorable="d"
+        x:Name="MainWindowUI" Height="690" Width="1150" MinHeight="20" MinWidth="20"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" 
+        Background="Transparent" ResizeMode="CanResizeWithGrip">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
+
+    <Border CornerRadius="5" Background="#F7F7F7F7" MouseDown="Border_MouseDown" 
+            MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--APP HEADER-->
+            <TextBlock Text="FYP Project Management App" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55 0 0 2" FontSize="16" FontWeight="SemiBold" Foreground="#303f9f"/>
+            <icons:PackIconMaterial Kind="Message" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33 0 0 4" Width="14" Height="14" Foreground="#ff9d00"/>
+            <icons:PackIconMaterial Kind="Message" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 4 0 0" Width="14" Height="14" Foreground="#4880ff"/>
+
+            <!--Window max min hide Menu-->
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,15,0">
+                <Button Style="{StaticResource menubutton}" Click="MinimizeButton_Click">
+                    <icons:PackIconMaterial Kind="WindowMinimize" Width="14" Height="14"/>
+                </Button>
+                <Button Style="{StaticResource menubutton}" Click="MaximizeButton_Click">
+                    <icons:PackIconMaterial Kind="WindowMaximize" Width="14" Height="14"/>
+                </Button>
+                <Button Style="{StaticResource menubutton}" Click="CloseButton_Click">
+                    <icons:PackIconMaterial Kind="WindowClose" Width="14" Height="14"/>
+                </Button>
+            </StackPanel>
+
+            <!--sidebar-->
+
+            <Border Grid.Row="2" Grid.Column="2" Background="#303f9f">
+                <StackPanel Margin="150 150 10 20">
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Manage Students" Width="150" Height="40" Click="ManageStBtn_Click"/>
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Manage Advisors" Width="150" Height="40" Click="ManageAdBtn_Click"/>
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Manage Projects" Width="150" Height="40" Click="ManageProjButton_Click"/>
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Manage Evaluations" Width="150" Height="40" Click="ManageEvalButton_Click"/>
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Manage Groups" Width="150" Height="40" Click="ManageGrpButton_Click"/>
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Mark Evaluation" Width="150" Height="40" Click="MarkEvalButton_Click"/>
+                    <Button Style="{StaticResource SidebarButtonStyle}" Foreground="#0A2463" FontWeight="DemiBold" FontSize="14" Content="Generate PDFs" Width="150" Height="40" Click="PDFs_Button_Click"/>
+
+                </StackPanel>
+            </Border>
+
+            <!--Left Section-->
+            <Border Grid.Row="1" Background="#4880ff" CornerRadius="0 0 0 5">
+                <Grid VerticalAlignment="Center" Margin="70 0 -60 0">
+                    <!--Background Layers-->
+                    <Border CornerRadius="7 0 0 0" Background="#F7F8FB" Height="50" Margin="40 -30 60 0" VerticalAlignment="Top"/>
+                    <Border CornerRadius="7 0 0 0" Background="#FDFDFD" Height="50" Margin="20 -15 60 0" VerticalAlignment="Top"/>
+
+                    <!--Main Layer-->
+                    <Border CornerRadius="7" Background="AliceBlue" Margin="10,-262,-88,-262">
+                        <Border.Effect>
+                            <DropShadowEffect Direction="-130" BlurRadius="30" ShadowDepth="5" Opacity="0.1"/>
+                        </Border.Effect>
+
+                        <Grid Margin="20 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <!--Inputs-->
+                            <Grid Name="container" Grid.RowSpan="2" Height="536" VerticalAlignment="Top">
+                                <TextBlock x:Name="welcome1TxtBlock" Text="Welcome" Foreground="#0A2463" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" FontWeight="DemiBold" FontFamily="Arial Rounded MT Bold"/>
+                                <TextBlock x:Name="welcome2TxtBlock" Text="Welcome" Foreground="#3E92CC" Margin="0,0, 5, 11" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" FontWeight="DemiBold" FontFamily="Arial Rounded MT Bold"/>
+                                <TextBlock x:Name="CcTxtBlock" Text="Copyright © Abdullah Aamir" Foreground="#0A2463" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18" FontWeight="DemiBold" FontFamily="Arial Rounded MT Bold"/>
+                                <TextBlock x:Name="TitleTxtBlock" Text="Final Year Project Management System" Foreground="#0A2463" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="18" FontWeight="DemiBold" FontFamily="Arial Rounded MT Bold"/>
+                                <!--ADD USER Controls here -->
+                                
+                            </Grid>
+                            <!--Form Bottom Background-->
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

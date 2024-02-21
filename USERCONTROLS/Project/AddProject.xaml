@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="MidTermProject.USERCONTROLS.Project.AddProject"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MidTermProject.USERCONTROLS.Project"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <TextBlock x:Name="txtBlockProjInfo" Text="Project Information" Grid.ColumnSpan="2" Foreground="#858585" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Medium"/>
+
+        <TextBlock  Margin="60,0,0,0" Grid.Row="1" Text="Title:" Foreground="#858585" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBox x:Name="ProjTitleTxtBox" Margin="10,0, 0,0" Grid.Row="1" Grid.Column="2" Style="{StaticResource CustomTextBoxStyle}"
+             Tag="Enter The Title Here"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+             Width="300" Height="50" />
+
+        <TextBlock  Margin="60,0,0,0" Grid.Row="2" Text="Description:" Foreground="#858585" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBox x:Name="projDesTxtBox" Margin="10,0, 0,0" Grid.Row="2" Grid.Column="2" Style="{StaticResource CustomTextBoxStyle}"
+             Tag="Enter The description Here"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+             Width="300" Height="50" />
+
+        <Button x:Name="AddButton" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource BlueButtonStyle}" Content="ADD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="AddButton_Click"/>
+        <Button x:Name="EditButton" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource BlueButtonStyle}" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="EditButton_Click" Visibility="Hidden"/>
+        <Grid x:Name="container" Grid.RowSpan="4" Grid.ColumnSpan="2"/>
+    </Grid>
+</UserControl>
